@@ -95,8 +95,12 @@
         <div class="search">
           <i class="fas fa-search"></i>
           <input type="text" placeholder="Search" />
-          <select>
+        </div>
+        <div class="filter">
+        <select class="select">
             <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
           </select>
         </div>
         <div class="table-container">
@@ -346,6 +350,7 @@ export default {
 .content {
   display: flex;
   padding: 20px;
+  background-color: #f2f2f2;
 }
 
 .left,
@@ -428,7 +433,7 @@ export default {
 .products .table {
   width: 100%;
   border-collapse: collapse;
-  color: #000;
+  color: #050505;
 }
 
 .products .table th,
@@ -451,8 +456,16 @@ export default {
   align-items: center;
   margin-bottom: 20px;
   background-color: #f2f2f2;
-  padding: 10px;
+  padding: 1px;
   border-radius: 4px;
+  margin-right: 400px;
+  
+}
+
+.filter select{
+  margin: 0 ;
+  display: flex;
+  color:black;
 }
 
 .search i {
