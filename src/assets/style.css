@@ -1,4 +1,3 @@
-
 .wrapper {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -19,6 +18,7 @@
 .logo {
   display: flex;
   align-items: center;
+  background-color: #f2f2f2;
 }
 
 .logo i {
@@ -31,6 +31,9 @@
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  margin: 30px;
+  margin-top: 4px;
+  margin-bottom: -5px;
 }
 
 .nav,
@@ -63,17 +66,35 @@
   color: #666;
 }
 
+
+.element {
+  display: block;
+  box-sizing: border-box;
+  height: 220px;
+  width: 500px;
+
+}
 .content {
   display: flex;
-  padding: 20px;
+  padding: 9px;
   background-color: #f2f2f2;
 }
 
-.left,
+.left {
+  margin-top: -15px;
+}
+
+.left{
+  width: 35%;
+  background-color: #f2f2f2;
+  /* padding: 20px; */
+  border-radius: 8px;
+  margin: 10px;
+}
 .right {
-  width: 50%;
+  width: 65%;
   background-color: #fff;
-  padding: 20px;
+  padding: 14px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
@@ -88,24 +109,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .date-range span {
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
 }
 
 .date-range i {
   font-size: 18px;
-  color: #666;
+  color: gray;
 }
 
 .title {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 1px;
 }
 
 .chart {
@@ -120,31 +144,33 @@
 
 .legend {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
+  bottom: -19px;
+  left: 8px;
+  right: 526px;
+  margin-left: 38px;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
+  margin-right: -4px;
 }
 
 .legend-item i {
   font-size: 12px;
   margin-right: 5px;
+  margin-right: 15px;
 }
 
 .legend-item span {
   font-size: 12px;
   color: #666;
+  margin-right: 30px;
 }
 
 .products {
-  margin-top: 20px;
+  margin-top: -5px;
 }
 
 .products .title {
@@ -152,15 +178,15 @@
 }
 
 .products .table {
-  width: 100%;
+  width:100%;
   border-collapse: collapse;
   color: #050505;
+  font-size: 10px;
 }
 
 .products .table th,
 .products .table td {
   padding: 10px;
-  border: 1px solid #ddd;
   text-align: left;
 }
 
@@ -175,31 +201,52 @@
 .search {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
   background-color: #f2f2f2;
-  padding: 1px;
-  border-radius: 4px;
-  margin-right: 400px;
+  padding: -11px;
+  border-radius: 8px;
+ 
+  ;
   
 }
 
+
+.right-layout {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.right-layout .actions{
+  justify-content: flex-end;
+  margin-left: 300px;
+  height: 20px;
+
+}
+.search-filter{
+  display: flex;
+}
+.search-icon{
+  margin-left: 16px;
+}
+
 .filter select{
-  margin: 0 ;
+ 
   display: flex;
   color:black;
+  height: 35px;
+  font-size: 15px;
 }
 
 .search i {
   font-size: 18px;
   color: #666;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .search input {
   border: none;
   outline: none;
-  padding: 8px;
-  font-size: 16px;
+  padding: 25px;
+  font-size: 15px;
   color: #333;
 }
 
@@ -217,6 +264,7 @@
 
 .table-container {
   overflow-x: auto;
+  font-size: 10px;
 }
 
 .table-container .table {
@@ -227,7 +275,6 @@
 .table-container .table th,
 .table-container .table td {
   padding: 10px;
-  border: 1px solid #ddd;
   text-align: left;
   color: #000000;
 }
@@ -247,7 +294,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-right: -557px;
 }
 
 .pagination i,
@@ -261,15 +309,20 @@
   cursor: pointer;
 }
 
+.content.buton{
+  color: #050505;
+}
+
 .actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  margin-top: 20px;
+  padding-top: -72px;
+  padding-right : 10px;
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 10px 10px;
   border: none;
   border-radius: 4px;
   font-size: 16px;
@@ -307,5 +360,33 @@
     border-radius: 204%;
     background-color: rgb(52, 131, 221);
     font-size: 10px;
-    
 }
+.left {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Atur tinggi elemen left sesuai kebutuhan */
+}
+
+.left-top {
+  flex: 1;
+  border-bottom: 1px solid #ccc; /* Garis pembatas antara atas dan bawah */
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.left-bottom {
+  flex: 1;
+  padding-top: 20px;
+  overflow-y: auto; /* Agar tabel bisa di-scroll jika tinggi konten lebih besar dari container */
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 22px;
+}
+.pagination .status {
+  margin-left: -548px;
+  font-size: 13px;
+}
+

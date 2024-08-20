@@ -11,27 +11,10 @@
           Report</span>
       </div>
       <div class="user">
-        <div class="dropdown notificationBell">
-          <button class="buttonBell dropdowns-toggle bx bx-bell icon-button mt-3" data-toggle="notif-menu"
-            style="margin-right: 20px">
-            <span class="icon-button__badge fw-bold" style="padding: 5px; font-size: 13px" id="count_notif">0</span>
-          </button>
-          <ul id="notif-menu" class="dropdowns-menu dropdown-menu-start"
-            style="height: 400px; padding: 16px; margin-top: -12px">
-            <li class="dropdowns-menu-item">
-            <li class="dropdown-item d-flex align-items-end justify-content-between text-black" style="width: 400px">
-              <p class="fw-bold">Notifikasi <span class="totalNotif"></span></p>
-              <a href="#" class="text-red500 text-decoration-none readAllNotification" style="font-size: 14px">Tandai
-                Sudah Dibaca</a>
-            </li>
-            <hr class="text-black my-2">
-            <div class="overflow-auto" id="idNotification">
-            </div>
-            </li>
-          </ul>
-        </div>
+        <i class="fas fa-bell"></i>
         <span>Febby Fakhrian</span>
         <img src="./assets/img/boy.png" alt="User Icon" />
+        <img src="./assets/img/down-arrow.png" alt="dropdown" />
       </div>
     </div>
     <div class="logo">
@@ -39,110 +22,119 @@
     </div>
     <div class="content">
       <div class="left">
-        <div class="date-range">
-          <span>16 July 2024 to 17 July 2024</span>
-          <i class="far fa-calendar-alt"></i>
-          <v-container>
-            <v-row justify="space-around">
-              <v-date-picker elevation="24"></v-date-picker>
-            </v-row>
-          </v-container>
-        </div>
-        <div class="title">Comparation Sales</div>
-        <div class="chart">
-          <canvas id="myChart"></canvas>
-          <div class="legend">
-            <div class="legend-item">
-              <i class="fas fa-circle" style="color: #ffc107;"></i>
-              <span>16 July 2024</span>
-            </div>
-            <div class="legend-item">
-              <i class="fas fa-circle" style="color: #00a9ff;"></i>
-              <span>17 July 2024</span>
+        <div class="left-top">
+          <div id="dateRangeButton" class="date-range">
+            <button class=" buton btn btn-outline-primary">
+              16 July 2024 to 17 July 2024
+              </button>
+              <i class="far fa-calendar-alt"></i>
+          </div>
+
+          <!-- Include Flatpickr's Input (hidden for display purposes) -->
+          <input type="text" id="flatpickrInput" style="display: none;" />
+
+          <div class="title">Comparation Sales</div>
+          <div class="chart">
+            <canvas id="myChart"></canvas>
+            <div class="legend">
+              <div class="legend-item">
+                <i class="fas fa-circle" style="color: #ffc107;"></i>
+                <span>16 July 2024</span>
+              </div>
+              <div class="legend-item">
+                <i class="fas fa-circle" style="color: #00a9ff;"></i>
+                <span>17 July 2024</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="products">
-          <div class="title">Most Popular Products</div>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Total QTY</th>
-                <th>Total Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Iphone 14 Pro</td>
-                <td>Rp. 11.079.429</td>
-                <td>100</td>
-                <td>Rp. 1.107.942.900</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Iphone 15 Pro</td>
-                <td>Rp. 13.505.582</td>
-                <td>75</td>
-                <td>Rp. 1.012.918.650</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Asus TUF Gaming AX4200</td>
-                <td>Rp. 12.426.152</td>
-                <td>50</td>
-                <td>Rp. 621.307.600</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Asus ROG Rapture GT-BE98</td>
-                <td>Rp. 17.729.213</td>
-                <td>25</td>
-                <td>Rp. 443.230.325</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Samsung Galaxy S23 FE</td>
-                <td>Rp. 6.375.000</td>
-                <td>13</td>
-                <td>Rp. 82.875.000</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="divider"></div>
+        <div class="left-bottom">
+          <div class="products">
+            <div class="title">Most Popular Products</div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>No <i class="fa-solid fa-sort"></i></th>
+                  <th>Product Name <i class="fa-solid fa-sort"></i></th>
+                  <th>Price <i class="fa-solid fa-sort"></i></th>
+                  <th>Total QTY <i class="fa-solid fa-sort"></i></th>
+                  <th>Total Price <i class="fa-solid fa-sort"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Iphone 14 Pro</td>
+                  <td>Rp. 11.079.429</td>
+                  <td>100</td>
+                  <td>Rp. 1.107.942.900</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Iphone 15 Pro</td>
+                  <td>Rp. 13.505.582</td>
+                  <td>75</td>
+                  <td>Rp. 1.012.918.650</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Asus TUF Gaming AX4200</td>
+                  <td>Rp. 12.426.152</td>
+                  <td>50</td>
+                  <td>Rp. 621.307.600</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Asus ROG Rapture GT-BE98</td>
+                  <td>Rp. 17.729.213</td>
+                  <td>25</td>
+                  <td>Rp. 443.230.325</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Samsung Galaxy S23 FE</td>
+                  <td>Rp. 6.375.000</td>
+                  <td>13</td>
+                  <td>Rp. 82.875.000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <div class="right">
         <div class="title">History Transcation</div>
-        <div class="search">
-          <i class="fas fa-search"></i>
-          <input type="text" placeholder="Search" />
-        </div>
-        <div class="filter">
-          <select class="select">
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-          </select>
-        </div>
-        <div class="actions">
-          <button class="btn btn-primary">Verify</button>
-          <button class="btn btn-danger">Delete</button>
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-success">Add</button>
+        <div class="right-layout">
+          <div class="search" style="height: 35px;">
+            <i class="search-icon fas fa-search"></i>
+            <input type="text" placeholder="Search" />
+          </div>
+          <div class="filter" style="margin-left: 8px;">
+            <select class="form-select form-select-md mb-3">
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+            </select>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary mr-4" @click="handleVerify">Verify</button>
+            <button class="btn btn-danger mr-4" @click="handleDelete">Delete</button>
+            <button class="btn btn-info mr-4" @click="handleEdit">Edit</button>
+            <button class="btn btn-success mr-4" @click="handleAdd">Add</button>
+          </div>
         </div>
         <div class="table-container">
           <table class="table">
             <thead>
               <tr>
-                <th>No</th>
-                <th>Transaction Code</th>
-                <th>Customer</th>
-                <th>Total Item</th>
-                <th>Total Price</th>
-                <th>Action</th>
+                <th>No <i class="fa-solid fa-sort"></i></th>
+                <th>Transaction Code <i class="fa-solid fa-sort"></i></th>
+                <th>Customer <i class="fa-solid fa-sort"></i></th>
+                <th>Total Item <i class="fa-solid fa-sort"></i></th>
+                <th>Total Price <i class="fa-solid fa-sort"></i></th>
+                <th>Action <i class="fa-solid fa-sort"></i></th>
               </tr>
             </thead>
             <tbody>
@@ -262,6 +254,7 @@
           </table>
         </div>
         <div class="pagination">
+          <div class="status">Showing 1 of 10 of 100 entries</div>
           <i class="fas fa-chevron-left"></i>
           <i class="fas fa-chevron-left"></i>
           <span>1</span>
@@ -314,7 +307,225 @@ export default {
       },
     });
   },
+  methods: {
+    handleVerify() {
+  this.$swal({
+    title: 'User Information',
+    html: `
+      <form id="userForm">
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" class="swal2-input" placeholder="Enter your first name" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" class="swal2-input" placeholder="Enter your last name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" class="swal2-input" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="text" id="phone" class="swal2-input" placeholder="Enter your phone number" required>
+        </div>
+      </form>
+    `,
+    showCancelButton: true,
+    confirmButtonText: 'Submit',
+    focusConfirm: false,
+    preConfirm: () => {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+      if (!firstName || !lastName || !email || !phone) {
+        this.$swal.showValidationMessage('Please fill out all fields');
+        return false;
+      }
+
+      return { firstName, lastName, email, phone };
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const formData = result.value;
+
+      // Process the form data here
+      console.log('Form Data:', formData);
+
+      // Example: Sending the data to an API
+      // this.verifyUser(formData);
+
+      // Show success message
+      this.$swal('Success', 'Your information has been submitted!', 'success');
+    }
+  });
+}, handleDelete() {
+  this.$swal({
+    title: 'Delete Confirmation',
+    html: `
+      <form id="deleteForm">
+        <div class="form-group">
+          <label for="itemID">Item ID:</label>
+          <input type="text" id="itemID" class="swal2-input" placeholder="Enter the item ID to delete" required>
+        </div>
+        <div class="form-group">
+          <label for="reason">Reason for Deletion:</label>
+          <textarea id="reason" class="swal2-textarea" placeholder="Enter the reason for deletion" required></textarea>
+        </div>
+      </form>
+    `,
+    showCancelButton: true,
+    confirmButtonText: 'Delete',
+    focusConfirm: false,
+    preConfirm: () => {
+      const itemID = document.getElementById('itemID').value;
+      const reason = document.getElementById('reason').value;
+
+      if (!itemID || !reason) {
+        this.$swal.showValidationMessage('Please fill out all fields');
+        return false;
+      }
+
+      return { itemID, reason };
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const formData = result.value;
+
+      // Process the form data here
+      console.log('Form Data:', formData);
+
+      // Example: Sending the data to an API or executing the delete action
+      // this.deleteItem(formData);
+
+      // Show success message
+      this.$swal('Deleted!', 'The item has been deleted.', 'success');
+    }
+  });
+}, handleEdit() {
+  // Initialize SweetAlert2 with a split form
+  this.$swal.fire({
+    title: 'Edit Transaction',
+    html: `
+      <div id="editForm">
+        <div id="step1">
+          <h4>Step 1: Transaction Details</h4>
+          <div class="form-group">
+            <label for="transactionID">Transaction ID:</label>
+            <input type="text" id="transactionID" class="swal2-input" placeholder="Enter transaction ID" required>
+          </div>
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" class="swal2-input" required>
+          </div>
+        </div>
+        <div id="step2" style="display: none;">
+          <h4>Step 2: Edit Details</h4>
+          <div class="form-group">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" class="swal2-input" placeholder="Enter item name" required>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" class="swal2-input" placeholder="Enter quantity" required>
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" class="swal2-input" placeholder="Enter price" required>
+          </div>
+        </div>
+      </div>
+    `,
+    showCancelButton: true,
+    confirmButtonText: 'Next',
+    cancelButtonText: 'Cancel',
+    focusConfirm: false,
+    preConfirm: () => {
+      const step1 = document.getElementById('step1');
+      const step2 = document.getElementById('step2');
+      const isStep1Visible = step1.style.display !== 'none';
+
+      if (isStep1Visible) {
+        // Validate Step 1
+        const transactionID = document.getElementById('transactionID').value;
+        const date = document.getElementById('date').value;
+
+        if (!transactionID || !date) {
+          this.$swal.showValidationMessage('Please fill out all fields in Step 1');
+          return false;
+        }
+
+        // Move to Step 2
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+        this.$swal.getPopup().querySelector('.swal2-confirm').textContent = 'Submit';
+        return false; // Prevent automatic confirmation
+      } else {
+        // Validate Step 2
+        const itemName = document.getElementById('itemName').value;
+        const quantity = document.getElementById('quantity').value;
+        const price = document.getElementById('price').value;
+
+        if (!itemName || !quantity || !price) {
+          this.$swal.showValidationMessage('Please fill out all fields in Step 2');
+          return false;
+        }
+
+        return { transactionID: document.getElementById('transactionID').value, date: document.getElementById('date').value, itemName, quantity, price };
+      }
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const formData = result.value;
+
+      // Process the form data here
+      console.log('Form Data:', formData);
+
+      // Example: Sending the data to an API or executing the edit action
+      // this.editTransaction(formData);
+
+      // Show success message
+      this.$swal('Edited!', 'The transaction has been updated.', 'success');
+    }
+  });
+}, handleAdd() {
+      // Use sweetalert2
+      this.$swal('Hello Vue world!!!');
+    },
+  },
 };
+document.addEventListener('DOMContentLoaded', function () {
+  const dateRangeButton = document.getElementById('dateRangeButton');
+  const flatpickrInput = document.getElementById('flatpickrInput');
+
+  const flatpickrInstance = flatpickr(flatpickrInput, {
+    mode: 'range',
+    defaultDate: ['2024-07-16', '2024-07-17'], // Set default dates
+    onClose: function(selectedDates, dateStr, instance) {
+      if (selectedDates.length === 2) {
+        const startDate = selectedDates[0];
+        const endDate = selectedDates[1];
+        const formattedStart = startDate.toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+        const formattedEnd = endDate.toLocaleDateString('en-GB', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+        dateRangeButton.textContent = `${formattedStart} to ${formattedEnd}`;
+      }
+    }
+  });
+
+  dateRangeButton.addEventListener('click', function () {
+    flatpickrInstance.open();
+  });
+});
 
 
 </script>
