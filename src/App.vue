@@ -26,8 +26,8 @@
           <div id="dateRangeButton" class="date-range">
             <button class=" buton btn btn-outline-primary">
               16 July 2024 to 17 July 2024
-              </button>
-              <i class="far fa-calendar-alt"></i>
+            </button>
+            <i class="far fa-calendar-alt"></i>
           </div>
 
           <!-- Include Flatpickr's Input (hidden for display purposes) -->
@@ -309,62 +309,88 @@ export default {
   },
   methods: {
     handleVerify() {
-  this.$swal({
-    title: 'User Information',
-    html: `
-      <form id="userForm">
-        <div class="form-group">
-          <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" class="swal2-input" placeholder="Enter your first name" required>
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" class="swal2-input" placeholder="Enter your last name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" class="swal2-input" placeholder="Enter your email" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number:</label>
-          <input type="text" id="phone" class="swal2-input" placeholder="Enter your phone number" required>
-        </div>
-      </form>
+      this.$swal({
+        title: 'Verify',
+        html: `
+        <div class="verify">
+          <div class="right-layout">
+            <div class="container text-center">
+              <div class="row">
+                <div class="col">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                      <div style="display:flex;">
+                      <div class="title-verify">Transcation Code</div>
+                      <div class="search-verify">
+                        <input type="text" style="color:black;margin-left: 10px;" placeholder="Scan Transcation Code" />
+                        <i class="scan fa-solid fa-expand"></i>
+                      </div>
+                      </div>
+                  <th>No <i class="fa-solid fa-sort"></i></th>
+                  <th>Product Code <i class="fa-solid fa-sort"></i></th>
+                  <th>Product Name <i class="fa-solid fa-sort"></i></th>
+                  <th>Check <i class="fa-solid fa-sort"></i></th>
+                </tr>
+              </thead>
+            </table>
+      </div>
+    <div class="col">
+      <table class="table">
+              <thead>
+                <tr>
+                  <div style="display:flex;">
+                      <div class="title-verify">Item Product</div>
+                      <div id="Code" class="search-verify">
+                        <input type="text" style="color: black;margin-left: 10px;" placeholder="Scan Item Product" />
+                        <i class="scan fa-solid fa-expand"></i>
+                      </div>
+                      </div>
+                  <th>No <i class="fa-solid fa-sort"></i></th>
+                  <th>Product Code <i class="fa-solid fa-sort"></i></th>
+                  <th>Product Name <i class="fa-solid fa-sort"></i></th>
+                  <th>Check <i class="fa-solid fa-sort"></i></th>
+                </tr>
+              </thead>
+            </table>
+    </div>
+    </div>
+  </div>
     `,
-    showCancelButton: true,
-    confirmButtonText: 'Submit',
-    focusConfirm: false,
-    preConfirm: () => {
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        focusConfirm: false,
+        preConfirm: () => {
+          const firstName = document.getElementById('firstName').value;
+          const lastName = document.getElementById('lastName').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
 
-      if (!firstName || !lastName || !email || !phone) {
-        this.$swal.showValidationMessage('Please fill out all fields');
-        return false;
-      }
+          if (!firstName || !lastName || !email || !phone) {
+            this.$swal.showValidationMessage('Please fill out all fields');
+            return false;
+          }
 
-      return { firstName, lastName, email, phone };
-    }
-  }).then((result) => {
-    if (result.isConfirmed) {
-      const formData = result.value;
+          return { firstName, lastName, email, phone };
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const formData = result.value;
 
-      // Process the form data here
-      console.log('Form Data:', formData);
+          // Process the form data here
+          console.log('Form Data:', formData);
 
-      // Example: Sending the data to an API
-      // this.verifyUser(formData);
+          // Example: Sending the data to an API
+          // this.verifyUser(formData);
 
-      // Show success message
-      this.$swal('Success', 'Your information has been submitted!', 'success');
-    }
-  });
-}, handleDelete() {
-  this.$swal({
-    title: 'Delete Confirmation',
-    html: `
+          // Show success message
+          this.$swal('Success', 'Your information has been submitted!', 'success');
+        }
+      });
+    }, handleDelete() {
+      this.$swal({
+        title: 'Delete Confirmation',
+        html: `
       <form id="deleteForm">
         <div class="form-group">
           <label for="itemID">Item ID:</label>
@@ -376,39 +402,39 @@ export default {
         </div>
       </form>
     `,
-    showCancelButton: true,
-    confirmButtonText: 'Delete',
-    focusConfirm: false,
-    preConfirm: () => {
-      const itemID = document.getElementById('itemID').value;
-      const reason = document.getElementById('reason').value;
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        focusConfirm: false,
+        preConfirm: () => {
+          const itemID = document.getElementById('itemID').value;
+          const reason = document.getElementById('reason').value;
 
-      if (!itemID || !reason) {
-        this.$swal.showValidationMessage('Please fill out all fields');
-        return false;
-      }
+          if (!itemID || !reason) {
+            this.$swal.showValidationMessage('Please fill out all fields');
+            return false;
+          }
 
-      return { itemID, reason };
-    }
-  }).then((result) => {
-    if (result.isConfirmed) {
-      const formData = result.value;
+          return { itemID, reason };
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const formData = result.value;
 
-      // Process the form data here
-      console.log('Form Data:', formData);
+          // Process the form data here
+          console.log('Form Data:', formData);
 
-      // Example: Sending the data to an API or executing the delete action
-      // this.deleteItem(formData);
+          // Example: Sending the data to an API or executing the delete action
+          // this.deleteItem(formData);
 
-      // Show success message
-      this.$swal('Deleted!', 'The item has been deleted.', 'success');
-    }
-  });
-}, handleEdit() {
-  // Initialize SweetAlert2 with a split form
-  this.$swal.fire({
-    title: 'Edit Transaction',
-    html: `
+          // Show success message
+          this.$swal('Deleted!', 'The item has been deleted.', 'success');
+        }
+      });
+    }, handleEdit() {
+      // Initialize SweetAlert2 with a split form
+      this.$swal.fire({
+        title: 'Edit Transaction',
+        html: `
       <div id="editForm">
         <div id="step1">
           <h4>Step 1: Transaction Details</h4>
@@ -438,62 +464,132 @@ export default {
         </div>
       </div>
     `,
-    showCancelButton: true,
-    confirmButtonText: 'Next',
-    cancelButtonText: 'Cancel',
-    focusConfirm: false,
-    preConfirm: () => {
-      const step1 = document.getElementById('step1');
-      const step2 = document.getElementById('step2');
-      const isStep1Visible = step1.style.display !== 'none';
+        showCancelButton: true,
+        confirmButtonText: 'Next',
+        cancelButtonText: 'Cancel',
+        focusConfirm: false,
+        preConfirm: () => {
+          const step1 = document.getElementById('step1');
+          const step2 = document.getElementById('step2');
+          const isStep1Visible = step1.style.display !== 'none';
 
-      if (isStep1Visible) {
-        // Validate Step 1
-        const transactionID = document.getElementById('transactionID').value;
-        const date = document.getElementById('date').value;
+          if (isStep1Visible) {
+            // Validate Step 1
+            const transactionID = document.getElementById('transactionID').value;
+            const date = document.getElementById('date').value;
 
-        if (!transactionID || !date) {
-          this.$swal.showValidationMessage('Please fill out all fields in Step 1');
-          return false;
+            if (!transactionID || !date) {
+              this.$swal.showValidationMessage('Please fill out all fields in Step 1');
+              return false;
+            }
+
+            // Move to Step 2
+            step1.style.display = 'none';
+            step2.style.display = 'block';
+            this.$swal.getPopup().querySelector('.swal2-confirm').textContent = 'Submit';
+            return false; // Prevent automatic confirmation
+          } else {
+            // Validate Step 2
+            const itemName = document.getElementById('itemName').value;
+            const quantity = document.getElementById('quantity').value;
+            const price = document.getElementById('price').value;
+
+            if (!itemName || !quantity || !price) {
+              this.$swal.showValidationMessage('Please fill out all fields in Step 2');
+              return false;
+            }
+
+            return { transactionID: document.getElementById('transactionID').value, date: document.getElementById('date').value, itemName, quantity, price };
+          }
         }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          d
+          const formData = result.value;
 
-        // Move to Step 2
-        step1.style.display = 'none';
-        step2.style.display = 'block';
-        this.$swal.getPopup().querySelector('.swal2-confirm').textContent = 'Submit';
-        return false; // Prevent automatic confirmation
-      } else {
-        // Validate Step 2
-        const itemName = document.getElementById('itemName').value;
-        const quantity = document.getElementById('quantity').value;
-        const price = document.getElementById('price').value;
+          // Process the form data here
+          console.log('Form Data:', formData);
 
-        if (!itemName || !quantity || !price) {
-          this.$swal.showValidationMessage('Please fill out all fields in Step 2');
-          return false;
+          // Example: Sending the data to an API or executing the edit action
+          // this.editTransaction(formData);
+
+          // Show success message
+          this.$swal('Edited!', 'The transaction has been updated.', 'success');
         }
+      });
+    }, handleAdd() {
+      this.$swal({
+        title: 'Add Product',
+        html: `
+        <form id="addForm">
+          <div class="addForm">
+              <div class="form-group">
+                  <label for="itemID">Transaction Code:</label>
+                  <input type="text" id="itemID" class="swal2-input" placeholder="Enter the item ID to delete" required>
+              </div>
+              <label for="date">Transaction Date:</label>
+              <input type="date" id="date" class="swal2-input" required>
+              <div class="form-group">
+                  <label for="itemID">Customer:</label>
+                  <input type="text" id="itemID" class="swal2-input" placeholder="Enter the item ID to delete" required>
+              </div>
+              <div class="form-group">
+                  <label for="itemID">Product:</label>
+                  <input type="text" id="itemID" class="swal2-input" placeholder="Enter the item ID to delete" required>
+              </div>
+          </div>
+      </form>
 
-        return { transactionID: document.getElementById('transactionID').value, date: document.getElementById('date').value, itemName, quantity, price };
-      }
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No <i class="fa-solid fa-sort"></i></th>
+                        <th>Product Code <i class="fa-solid fa-sort"></i></th>
+                        <th>Product Name <i class="fa-solid fa-sort"></i></th>
+                        <th>QTY <i class="fa-solid fa-sort"></i></th>
+                        <th>Subtotal <i class="fa-solid fa-sort"></i></th>
+                        <th>Action <i class="fa-solid fa-sort"></i></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+    `,
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        focusConfirm: false,
+        preConfirm: () => {
+          const firstName = document.getElementById('firstName').value;
+          const lastName = document.getElementById('lastName').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+
+          if (!firstName || !lastName || !email || !phone) {
+            this.$swal.showValidationMessage('Please fill out all fields');
+            return false;
+          }
+
+          return { firstName, lastName, email, phone };
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const formData = result.value;
+
+          // Process the form data here
+          console.log('Form Data:', formData);
+
+          // Example: Sending the data to an API
+          // this.verifyUser(formData);
+
+          // Show success message
+          this.$swal('Success', 'Your information has been submitted!', 'success');
+        }
+      });
     }
-  }).then((result) => {
-    if (result.isConfirmed) {
-      const formData = result.value;
-
-      // Process the form data here
-      console.log('Form Data:', formData);
-
-      // Example: Sending the data to an API or executing the edit action
-      // this.editTransaction(formData);
-
-      // Show success message
-      this.$swal('Edited!', 'The transaction has been updated.', 'success');
-    }
-  });
-}, handleAdd() {
-      // Use sweetalert2
-      this.$swal('Hello Vue world!!!');
-    },
   },
 };
 document.addEventListener('DOMContentLoaded', function () {
@@ -503,7 +599,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const flatpickrInstance = flatpickr(flatpickrInput, {
     mode: 'range',
     defaultDate: ['2024-07-16', '2024-07-17'], // Set default dates
-    onClose: function(selectedDates, dateStr, instance) {
+    onClose: function (selectedDates, dateStr, instance) {
       if (selectedDates.length === 2) {
         const startDate = selectedDates[0];
         const endDate = selectedDates[1];
@@ -517,7 +613,7 @@ document.addEventListener('DOMContentLoaded', function () {
           month: 'short',
           year: 'numeric'
         });
-        dateRangeButton.textContent = `${formattedStart} to ${formattedEnd}`;
+        dateRangeButton.innerHTML = `${formattedStart} to ${formattedEnd} <i class="far fa-calendar-alt"></i>`; boo
       }
     }
   });
@@ -526,6 +622,5 @@ document.addEventListener('DOMContentLoaded', function () {
     flatpickrInstance.open();
   });
 });
-
 
 </script>
