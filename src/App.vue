@@ -119,10 +119,10 @@
           </div>
 
           <div class="actions">
-            <button class="btn btn-primary mr-4" @click="handleVerify">Verify</button>
-            <button class="btn btn-danger mr-4" @click="handleDelete">Delete</button>
-            <button class="btn btn-info mr-4" @click="handleEdit">Edit</button>
-            <button class="btn btn-success mr-4" @click="handleAdd">Add</button>
+            <button class="btn btn-primary mr-4" @click="handleVerify"><i class="fas fa-check"></i> Verify</button>
+            <button class="btn btn-danger mr-4" @click="handleDelete"><i class="fas fa-trash"></i> Delete</button>
+            <button class="btn btn-info mr-4" @click="handleEdit"><i class="fas fa-edit"></i> Edit</button>
+            <button class="btn btn-success mr-4" @click="handleAdd"><i class="fas fa-plus"></i> Add</button>
           </div>
         </div>
         <div class="table-container">
@@ -308,6 +308,9 @@ export default {
     });
   },
   methods: {
+    scan() {
+      alert("Scan function triggered!");
+    },
     handleVerify() {
       this.$swal({
         title: 'Verify',
@@ -321,10 +324,10 @@ export default {
                     <thead>
                       <tr>
                       <div style="display:flex;">
-                      <div class="title-verify">Transcation Code</div>
-                      <div class="search-verify">
-                        <input type="text" style="color:black;margin-left: 10px;" placeholder="Scan Transcation Code" />
-                        <i class="scan fa-solid fa-expand"></i>
+                      <div class="title-verify">Transaction Code</div>
+                      <div id="Code" class="search-verify">
+                        <input type="text" style="color: black;margin-left: 10px;" placeholder="Scan Item Product" />
+                        <i id="scanTransactionCode" class="scan fa-solid fa-expand" @click="scan"></i>
                       </div>
                       </div>
                   <th>No <i class="fa-solid fa-sort"></i></th>
@@ -333,8 +336,28 @@ export default {
                   <th>Check <i class="fa-solid fa-sort"></i></th>
                 </tr>
               </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>PRD000104</td>
+                    <td>Iphone XR</td>
+                    <td></td>
+                  </tr>
+                   <tr>
+                    <td>2</td>
+                    <td>PRD000105</td>
+                    <td>Iphone 7+</td>
+                    <td></td>
+                  </tr>
+                   <tr>
+                    <td>3</td>
+                    <td>PRD000106</td>
+                    <td>Iphone 11</td>
+                    <td></td>
+                  </tr>
+                </tbody>
             </table>
-      </div>
+        </div>
     <div class="col">
       <table class="table">
               <thead>
@@ -343,19 +366,110 @@ export default {
                       <div class="title-verify">Item Product</div>
                       <div id="Code" class="search-verify">
                         <input type="text" style="color: black;margin-left: 10px;" placeholder="Scan Item Product" />
-                        <i class="scan fa-solid fa-expand"></i>
+                        <i id="scanTransactionCode" class="scan fa-solid fa-expand" @click="scan"></i>
                       </div>
                       </div>
                   <th>No <i class="fa-solid fa-sort"></i></th>
                   <th>Product Code <i class="fa-solid fa-sort"></i></th>
                   <th>Product Name <i class="fa-solid fa-sort"></i></th>
-                  <th>Check <i class="fa-solid fa-sort"></i></th>
                 </tr>
               </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>PRD000106</td>
+                    <td>Iphone XR</td>
+                    <td></td>
+                  </tr>
+                   <tr>
+                    <td>2</td>
+                    <td>PRD000105</td>
+                    <td>Iphone 7+</td>
+                    <td></td>
+                  </tr>
+                   <tr>
+                    <td>3</td>
+                    <td>PRD000106</td>
+                    <td>Iphone 11</td>
+                    <td></td>
+                  </tr>
+                  </tr>
+                </tbody>
             </table>
-    </div>
+        </div>
     </div>
   </div>
+    `,
+
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        focusConfirm: false,
+        
+      });
+      this.$nextTick(() => {
+        document.getElementById('scanTransactionCode').addEventListener('click', this.scan);
+        document.getElementById('scanItemProduct').addEventListener('click', this.scan);
+      });
+    }, handleDelete() {
+    this.$swal({
+      text: 'Are you sure you want to delete this item?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Perform the delete action here
+        this.$swal({
+          text: 'The item has been deleted.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        })
+      }
+    });
+  }, handleEdit() {
+      this.$swal({
+        title: 'Edit Product',
+        html: `
+        <form id="addForm">
+          <div class="addForm">
+              <div class="form-group">
+                  <label for="itemID">Transaction Code:</label>
+                  <input type="text" id="itemID" class="swal2-input" placeholder="Enter the item ID to delete" required>
+              </div>
+              <label for="date">Transaction Date:</label>
+              <input type="date" id="date" class="swal2-input" required>
+              <div class="form-group">
+                  <label for="itemID">Customer:</label>
+                  <input type="text" id="itemID" class="swal2-input" placeholder="Pilih Customer" required>
+                  <i class="dropdown-add fa-solid fa-caret-down" @click="dropdown-add"></i>
+              </div>
+              <div class="form-group">
+                  <label for="itemID">Product:</label>
+                  <input type="text" id="itemID" class="swal2-input" placeholder="Scan Here" required>
+                  <i class="scan-add fa-solid fa-expand" @click="scan-add"></i>
+              </div>
+          </div>
+      </form>
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No <i class="fa-solid fa-sort"></i></th>
+                        <th>Product Code <i class="fa-solid fa-sort"></i></th>
+                        <th>Product Name <i class="fa-solid fa-sort"></i></th>
+                        <th>QTY <i class="fa-solid fa-sort"></i></th>
+                        <th>Subtotal <i class="fa-solid fa-sort"></i></th>
+                        <th>Action <i class="fa-solid fa-sort"></i></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
     `,
         showCancelButton: true,
         confirmButtonText: 'Submit',
@@ -387,136 +501,6 @@ export default {
           this.$swal('Success', 'Your information has been submitted!', 'success');
         }
       });
-    }, handleDelete() {
-      this.$swal({
-        title: 'Delete Confirmation',
-        html: `
-      <form id="deleteForm">
-        <div class="form-group">
-          <label for="itemID">Item ID:</label>
-          <input type="text" id="itemID" class="swal2-input" placeholder="Enter the item ID to delete" required>
-        </div>
-        <div class="form-group">
-          <label for="reason">Reason for Deletion:</label>
-          <textarea id="reason" class="swal2-textarea" placeholder="Enter the reason for deletion" required></textarea>
-        </div>
-      </form>
-    `,
-        showCancelButton: true,
-        confirmButtonText: 'Delete',
-        focusConfirm: false,
-        preConfirm: () => {
-          const itemID = document.getElementById('itemID').value;
-          const reason = document.getElementById('reason').value;
-
-          if (!itemID || !reason) {
-            this.$swal.showValidationMessage('Please fill out all fields');
-            return false;
-          }
-
-          return { itemID, reason };
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          const formData = result.value;
-
-          // Process the form data here
-          console.log('Form Data:', formData);
-
-          // Example: Sending the data to an API or executing the delete action
-          // this.deleteItem(formData);
-
-          // Show success message
-          this.$swal('Deleted!', 'The item has been deleted.', 'success');
-        }
-      });
-    }, handleEdit() {
-      // Initialize SweetAlert2 with a split form
-      this.$swal.fire({
-        title: 'Edit Transaction',
-        html: `
-      <div id="editForm">
-        <div id="step1">
-          <h4>Step 1: Transaction Details</h4>
-          <div class="form-group">
-            <label for="transactionID">Transaction ID:</label>
-            <input type="text" id="transactionID" class="swal2-input" placeholder="Enter transaction ID" required>
-          </div>
-          <div class="form-group">
-            <label for="date">Date:</label>
-            <input type="date" id="date" class="swal2-input" required>
-          </div>
-        </div>
-        <div id="step2" style="display: none;">
-          <h4>Step 2: Edit Details</h4>
-          <div class="form-group">
-            <label for="itemName">Item Name:</label>
-            <input type="text" id="itemName" class="swal2-input" placeholder="Enter item name" required>
-          </div>
-          <div class="form-group">
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" class="swal2-input" placeholder="Enter quantity" required>
-          </div>
-          <div class="form-group">
-            <label for="price">Price:</label>
-            <input type="number" id="price" class="swal2-input" placeholder="Enter price" required>
-          </div>
-        </div>
-      </div>
-    `,
-        showCancelButton: true,
-        confirmButtonText: 'Next',
-        cancelButtonText: 'Cancel',
-        focusConfirm: false,
-        preConfirm: () => {
-          const step1 = document.getElementById('step1');
-          const step2 = document.getElementById('step2');
-          const isStep1Visible = step1.style.display !== 'none';
-
-          if (isStep1Visible) {
-            // Validate Step 1
-            const transactionID = document.getElementById('transactionID').value;
-            const date = document.getElementById('date').value;
-
-            if (!transactionID || !date) {
-              this.$swal.showValidationMessage('Please fill out all fields in Step 1');
-              return false;
-            }
-
-            // Move to Step 2
-            step1.style.display = 'none';
-            step2.style.display = 'block';
-            this.$swal.getPopup().querySelector('.swal2-confirm').textContent = 'Submit';
-            return false; // Prevent automatic confirmation
-          } else {
-            // Validate Step 2
-            const itemName = document.getElementById('itemName').value;
-            const quantity = document.getElementById('quantity').value;
-            const price = document.getElementById('price').value;
-
-            if (!itemName || !quantity || !price) {
-              this.$swal.showValidationMessage('Please fill out all fields in Step 2');
-              return false;
-            }
-
-            return { transactionID: document.getElementById('transactionID').value, date: document.getElementById('date').value, itemName, quantity, price };
-          }
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          d
-          const formData = result.value;
-
-          // Process the form data here
-          console.log('Form Data:', formData);
-
-          // Example: Sending the data to an API or executing the edit action
-          // this.editTransaction(formData);
-
-          // Show success message
-          this.$swal('Edited!', 'The transaction has been updated.', 'success');
-        }
-      });
     }, handleAdd() {
       this.$swal({
         title: 'Add Product',
@@ -531,11 +515,13 @@ export default {
               <input type="date" id="date" class="swal2-input" required>
               <div class="form-group">
                   <label for="itemID">Customer:</label>
-                  <input type="text" id="itemID" class="swal2-input" placeholder="Enter the item ID to delete" required>
+                  <input type="text" id="itemID" class="swal2-input" placeholder="Pilih Customer" required>
+                  <i class="dropdown-add fa-solid fa-caret-down" @click="dropdown-add"></i>
               </div>
               <div class="form-group">
                   <label for="itemID">Product:</label>
-                  <input type="text" id="itemID" class="swal2-input" placeholder="Enter the item ID to delete" required>
+                  <input type="text" id="itemID" class="swal2-input" placeholder="Scan Here" required>
+                  <i class="scan-add fa-solid fa-expand" @click="scan-add"></i>
               </div>
           </div>
       </form>
