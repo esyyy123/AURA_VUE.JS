@@ -405,6 +405,27 @@ export default {
         confirmButtonText: 'Submit',
         focusConfirm: false,
         
+        
+      }).then((result) => {
+      if (result.isConfirmed) {
+        // Perform the delete action here
+        this.$swal({
+          text: 'Do you want to Verif Product?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No',
+        }).then((result) => {
+          if (result.isConfirmed) {
+        // Perform the delete action here
+        this.$swal({
+          text: 'User access has been Verif.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        })
+      }
+        })
+       }
       });
       this.$nextTick(() => {
         document.getElementById('scanTransactionCode').addEventListener('click', this.scan);
